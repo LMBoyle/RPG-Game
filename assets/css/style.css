@@ -1,0 +1,9 @@
+html {
+  background: url(../images/Space-background.png) no-repeat center center fixed;
+  background-size: cover;
+}
+
+body {
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: white;
+}
