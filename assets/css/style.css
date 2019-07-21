@@ -17,24 +17,25 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
   padding: 10px;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
   text-align: center;
+  justify-content: space-evenly;
 }
 
 /* Title */
 
 #title {
   grid-column: 1 / 5;
+  font-size: 60px;
+  color: black;
+	-webkit-text-stroke: 2px goldenrod;
 }
 
 /* Character Selection */
@@ -58,81 +59,135 @@ body {
 #sid,
 #maul {
   text-shadow: 2px 2px 8px black;
-  background-color: grey;
-  
+  background-color: lightgrey;
+  width: 220px;
 }
 
-#obi {
-  grid-column: 1;
-  grid-row: 2;
-  box-shadow: 0 0 8px lightblue;
-}
-
-#luke {
-  grid-column: 2;
-  grid-row: 2;
-  box-shadow: 0 0 8px green;
-}
-
-#sid {
-  grid-column: 3;
-  grid-row: 2;
-  box-shadow: 0 0 8px red;
-}
-
-#maul {
-  grid-column: 4;
-  grid-row: 2;
-  box-shadow: 0 0 8px red;
-}
-
-img {
+img#obi,
+img#luke,
+img#sid,
+img#maul {
   width: 110px;
   height: 100px;
   margin: 5px 0;
 }
 
+#obi {
+  grid-column: 1;
+  grid-row: 2;
+  box-shadow: 0 0 8px 3px rgb(148, 167, 231);
+}
+
+#luke {
+  grid-column: 2;
+  grid-row: 2;
+  box-shadow: 0 0 8px 3px green;
+}
+
+#sid {
+  grid-column: 3;
+  grid-row: 2;
+  box-shadow: 0 0 8px 3px red;
+}
+
+#maul {
+  grid-column: 4;
+  grid-row: 2;
+  box-shadow: 0 0 8px 3px red;
+}
+
+
+
 /* Fight Area */
 
-.area {
+.arena {
   grid-row: 3;
   grid-column: 1 / 5;
   display: grid;
+  background-color: gray;
+  row-gap: 5px;
 }
 
-
-
-
-
-
-
-
-/* 
-.container {
-  width: 960px;
-  margin: 0 auto;
+.you > *,
+.defender > * {
+  margin: 5px;
 }
 
-.characters {
-  width: 960px;
-  background-color: white;
-  margin: 0 auto;
+progress[value] {
+  -webkit-appearance: none;
+  width: 185px;
 }
 
-.select {
-  width:210px;
-  margin: 0 10px;
-  padding: 5px;
-  background-color: green;
-  border: 1px solid red;
-  float: left;
+/* User Fighter */
+
+.you {
+  grid-column: 1;
+  grid-row: 1;
+  width: 496px;
+  place-self: center;
+}
+
+/* Use the force button */
+.fight {
+  grid-column: 2;
+  grid-row: 1;
+  width: 185px;
+  place-self: center;
+}
+
+.fight h2 {
+  margin-bottom: 15px;
+}
+
+.fight button {
+  height: 50px;
+  font-size: 25px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+/* Enemy Fighter */
+.defender {
+  grid-column: 3;
+  grid-row: 1;
+  width: 496px;
+  place-self: center;
+}
+
+/* Enemies remaining to fight */
+
+.enemiesLeft {
+  grid-column: 3;
+  grid-row: 3;
+  background-color: red;
+  display: grid;
+  row-gap: 5px;
+}
+
+.enemiesLeft h2 {
+  grid-column: 1 / 4;
+  grid-row: 1;
   text-align: center;
+  padding: 10px;
 }
 
-
-
-h1 {
-  text-align: center;
-  margin: 10px 0;
+#one {
+  grid-column: 1;
+  grid-row: 2;
 }
- */
+
+#two {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+#three {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+img#fighter,
+img#toFight {
+  width: 110px;
+  height: 100px;
+  margin: 5px 0;
+}

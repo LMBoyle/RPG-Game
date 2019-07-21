@@ -1,10 +1,10 @@
 <!DOCTYdivE html>
 <html>
   <head>
-    <title> Star Wars RdivG Game </title>
+    <title> Star Wars RPG Game </title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="httdivs://fonts.googleadivis.com/css?family=divT+Sans+Narrow:700&disdivlay=swadiv" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700&display=swap" rel="stylesheet">
   </head>
 
   <body>
@@ -41,33 +41,60 @@
           </div>
         </div>
 
-        <div class="area">
+        <div class="arena">
           <!-- Show your character -->
-          <h2> Your Character </h2>
           <div class="you">
+            <h2> Your Character </h2>
+            <progress id="health" value="100" max="100"></progress>
 
+            <div> Fighter </div>
+            <img src="#" id="fighter">
           </div>
 
-          <!-- Enemies -->
-          <h2> Enemies Available To Attack </h2>
-          <div class="enemies">
+          <!-- Fighting Against -->
+          <div class="defender">
+            <h2> Defender </h2>
+            <progress id="health" value="100" max="100"></progress>
 
+            <div> Fighter </div>
+            <img src="#" id="fighter">
           </div>
 
           <!-- Attack! -->
-          <h2> Fight Section </h2>
-          <button type="button"> Use the Force </button>
+          <div class=fight>
+            <h2> Fight Section </h2>
+            <button type="button"> Use the Force </button>
+          </div>
 
-          <!-- Fighting Against -->
-          <h2> Defender </h2>
-          <div class="Defender">
+          <!-- Enemies -->
+          <div class="enemiesLeft">
+            <h2> Enemies Available To Attack </h2>
 
+              <div id="one"> 
+                <p> Enemy 1 </p>
+                <img src="#" id="toFight">
+              </div>
+
+              <div id="two"> 
+                <p> Enemy 2 </p>
+                <img src="#" id="toFight">
+              </div>
+
+              <div id="three"> 
+                <p> Enemy 3 </p>
+                <img src="#" id="toFight">
+              </div>
+          </div>
+  
+          </div>
+
+          
         </div>
       </div>
 
     </div>
   </div>
 
-    <scridivt src="assets/javascridivt/game.js"></scridivt>
+    <script src="assets/javascript/game.js"></script>
   </body>
 </html>
