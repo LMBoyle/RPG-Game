@@ -1,68 +1,73 @@
-<!DOCTYPE html>
+<!DOCTYdivE html>
 <html>
   <head>
-    <title> Star Wars RPG Game </title>
+    <title> Star Wars RdivG Game </title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700&display=swap" rel="stylesheet">
+    <link href="httdivs://fonts.googleadivis.com/css?family=divT+Sans+Narrow:700&disdivlay=swadiv" rel="stylesheet">
   </head>
 
   <body>
     <div class="container">
-      <!-- Title -->
-      <h1> Star Wars RPG! </h1>
-      <!-- Row of characters -->
-      <div class="characters">
-        <!-- Each box that contains a character -->
-        <div class="select">
-          <p> Obi-Wan Kenobi </p>
-          <img src="assets/images/Obi-wan.png" alt="Obi-Wan Kenobi" id="obi">
-          <p> 120 </p>
+      <div class="grid-container">
+        <!-- Title -->
+        <div id="title"> Star Wars RPG! </div>
+        <!-- Row of characters -->
+        <div class="charSelect">
+          <div class="direction"> Choose your Fighter </div>
+          <!-- Each box that contains a character -->
+          <div id="obi">
+            <div> Obi-Wan Kenobi </div>
+            <img src="assets/images/Obi-wan.png" alt="Obi-Wan Kenobi" id="obi">
+            <div> 120 </div>
+          </div>
+
+          <div id="luke">
+            <div> Luke Skywalker </div>
+            <img src="assets/images/Luke.jpg" alt="Luke Skywalker" id="luke">
+            <div> 100 </div>
+          </div>
+
+          <div id="sid">
+            <div> Darth Sidious </div>
+            <img src="assets/images/Darth_Sidious.jpg" alt="Darth Sidious" id="sid">
+            <div> 150 </div>
+          </div>
+
+          <div id="maul">
+            <div> Darth Maul </div>
+            <img src="assets/images/Darth_Maul.png" alt="Darth Maul" id="maul">
+            <div> 110 </div>
+          </div>
         </div>
 
-        <div class="select">
-          <p> Luke Skywalker </p>
-          <img src="assets/images/Luke.jpg" alt="Luke Skywalker" id="luke">
-          <p> 100 </p>
+        <div class="area">
+          <!-- Show your character -->
+          <h2> Your Character </h2>
+          <div class="you">
+
+          </div>
+
+          <!-- Enemies -->
+          <h2> Enemies Available To Attack </h2>
+          <div class="enemies">
+
+          </div>
+
+          <!-- Attack! -->
+          <h2> Fight Section </h2>
+          <button type="button"> Use the Force </button>
+
+          <!-- Fighting Against -->
+          <h2> Defender </h2>
+          <div class="Defender">
+
         </div>
-
-        <div class="select">
-          <p> Darth Sidious </p>
-          <img src="assets/images/Darth_Sidious.jpg" alt="Darth Sidious" id="sid">
-          <p> 150 </p>
-        </div>
-
-        <div class="select">
-          <p> Darth Maul </p>
-          <img src="assets/images/Darth_Maul.png" alt="Darth Maul" id="maul">
-          <p> 110 </p>
-        </div>
-      </div>
-
-      <!-- Show your character -->
-      <h2> Your Character </h2>
-      <div class="you">
-
-      </div>
-
-      <!-- Enemies -->
-      <h2> Enemies Available To Attack </h2>
-      <div class="enemies">
-
-      </div>
-
-      <!-- Attack! -->
-      <h2> Fight Section </h2>
-      <button type="button"> Use the Force </button>
-
-      <!-- Fighting Against -->
-      <h2> Defender </h2>
-      <div class="Defender">
-
       </div>
 
     </div>
+  </div>
 
-    <script src="assets/javascript/game.js"></script>
+    <scridivt src="assets/javascridivt/game.js"></scridivt>
   </body>
 </html>
