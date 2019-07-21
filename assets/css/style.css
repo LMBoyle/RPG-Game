@@ -104,7 +104,6 @@ img#maul {
   grid-row: 3;
   grid-column: 1 / 5;
   display: grid;
-  background-color: gray;
   row-gap: 5px;
 }
 
@@ -158,7 +157,6 @@ progress[value] {
 .enemiesLeft {
   grid-column: 3;
   grid-row: 3;
-  background-color: red;
   display: grid;
   row-gap: 5px;
 }
