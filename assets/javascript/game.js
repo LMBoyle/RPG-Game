@@ -1,4 +1,5 @@
 // VARIABLES
+var characters = ["assets/images/Obi-wan.png", "assets/images/Luke.jpg", "assets/images/Darth_Sidious.jpg", "assets/images/Darth_Maul.png" ]
 
 // ==============================================
 // CHOOSE YOUR FIGHTER
@@ -6,8 +7,6 @@ function startGame() {
 // On click, choose a character
 
 // Show fight arena
-console.log("You clicked me!");
-
   var a = document.getElementById("showHide");
 
   if (a.style.display === "none") {
@@ -26,8 +25,26 @@ console.log("You clicked me!");
   else {
     f.style.display = "grid";
   }
-// Show character under "fighter"
 
+// Show character under "user"
+document.addEventListener ('click', function(img) {
+console.log('event:', img.target.id);
+  if (img.target.id === "obi") {
+    document.getElementById("user").src = characters[0];
+  }
+  else if (img.target.id === "luke") {
+    document.getElementById("user").src = characters[1];
+  }
+  else if (img.target.id === "sid") {
+    document.getElementById("user").src = characters[2];
+  }
+  else {
+    document.getElementById("user").src = characters[3];
+  }
+})
+  // if (event === )
+
+// 
 // Show other characters under "enemiesLeft"
 }
 // ==============================================

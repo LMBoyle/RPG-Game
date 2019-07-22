@@ -66,7 +66,9 @@ body {
 img#obi,
 img#luke,
 img#sid,
-img#maul {
+img#maul,
+img#user,
+img#defender {
   width: 110px;
   height: 100px;
   margin: 5px 0;
