@@ -117,6 +117,8 @@ img#defender {
 progress[value] {
   -webkit-appearance: none;
   width: 185px;
+  display: block;
+  margin: 15px auto;
 }
 
 /* User Fighter */
@@ -134,10 +136,6 @@ progress[value] {
   grid-row: 1;
   width: 185px;
   place-self: center;
-}
-
-.fight h2 {
-  margin-bottom: 15px;
 }
 
 .fight button {

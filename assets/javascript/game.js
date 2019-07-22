@@ -1,40 +1,52 @@
 // VARIABLES
-var characters = ["assets/images/Obi-wan.png", "assets/images/Luke.jpg", "assets/images/Darth_Sidious.jpg", "assets/images/Darth_Maul.png" ]
-
+var characters = ["assets/images/Obi-wan.png", "assets/images/Luke.jpg", "assets/images/Darth_Sidious.jpg", "assets/images/Darth_Maul.png"];
+var user = document.getElementById("user");
+var one = document.getElementById("one");
+var two = document.getElementById("two");
+var three = document.getElementById("three");
 // ==============================================
 // CHOOSE YOUR FIGHTER
-function startGame() {
 // On click, choose a character
-document.addEventListener ('click', function(img) {
+$(".choose").click(function(img) {
+
+  console.log("you clicked me")
+
+
   if (img.target.id === "obi") {
     // Show character under "user"
-    document.getElementById("user").src = characters[0];
+    user.src = characters[0];
     // Show other characters under "enemiesLeft"
-    document.getElementById("one").src = characters[1];
-    document.getElementById("two").src = characters[2];
-    document.getElementById("three").src = characters[3];
+    one.src = characters[1];
+    two.src = characters[2];
+    three.src = characters[3];
   }
   else if (img.target.id === "luke") {
-    document.getElementById("user").src = characters[1];
-    document.getElementById("one").src = characters[0];
-    document.getElementById("two").src = characters[2];
-    document.getElementById("three").src = characters[3];
+    user.src = characters[1];
+    one.src = characters[0];
+    two.src = characters[2];
+    three.src = characters[3];
   }
   else if (img.target.id === "sid") {
-    document.getElementById("user").src = characters[2];
-    document.getElementById("one").src = characters[0];
-    document.getElementById("two").src = characters[1];
-    document.getElementById("three").src = characters[3];
+    user.src = characters[2];
+    one.src = characters[0];
+    two.src = characters[1];
+    three.src = characters[3];
   }
   else if (img.target.id === "maul") {
-    document.getElementById("user").src = characters[3];
-    document.getElementById("one").src = characters[0];
-    document.getElementById("two").src = characters[1];
-    document.getElementById("three").src = characters[2];
+    user.src = characters[3];
+    one.src = characters[0];
+    two.src = characters[1];
+    three.src = characters[2];
   }
-})
+
 
 // Show fight arena
+  $(".arena").toggle();
+
+// Hide character select
+  $(".charSelect").toggle();
+
+/*
   var a = document.getElementById("showHide");
 
   if (a.style.display === "none") {
@@ -43,8 +55,11 @@ document.addEventListener ('click', function(img) {
   else {
     a.style.display = "none";
   }
+*/
 
-// Hide character select
+
+
+/*
   var f = document.getElementById("choose");
 
   if (f.style.display === "grid") {
@@ -53,10 +68,10 @@ document.addEventListener ('click', function(img) {
   else {
     f.style.display = "grid";
   }
+*/
+})
 
 
-
-}
 // ==============================================
 // CHOOSE AN ENEMY
 // On click, choose an enemy

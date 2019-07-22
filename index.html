@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -13,28 +14,28 @@
         <!-- Title -->
         <div id="title"> Star Wars RPG! </div>
         <!-- Row of characters -->
-        <div class="charSelect" id="choose" onclick="startGame()" style="display: grid;">
+        <div class="charSelect" style="display: grid;">
           <div class="direction"> Choose your Fighter </div>
           <!-- Each box that contains a character -->
-          <div id="obi">
+          <div id="obi" class="choose">
             <div> Obi-Wan Kenobi </div>
             <img src="assets/images/Obi-wan.png" alt="Obi-Wan Kenobi" id="obi">
             <div> 120 </div>
           </div>
 
-          <div id="luke">
+          <div id="luke" class="choose">
             <div> Luke Skywalker </div>
             <img src="assets/images/Luke.jpg" alt="Luke Skywalker" id="luke">
             <div> 100 </div>
           </div>
 
-          <div id="sid">
+          <div id="sid" class="choose">
             <div> Darth Sidious </div>
             <img src="assets/images/Darth_Sidious.jpg" alt="Darth Sidious" id="sid">
             <div> 150 </div>
           </div>
 
-          <div id="maul">
+          <div id="maul" class="choose">
             <div> Darth Maul </div>
             <img src="assets/images/Darth_Maul.png" alt="Darth Maul" id="maul">
             <div> 110 </div>
@@ -47,8 +48,7 @@
             <h2> Your Character </h2>
             <progress id="health" value="100" max="100"></progress>
 
-            <div> Fighter </div>
-            <img id="user" src="#">
+            <img id="user" src="assets/images/starwars-loader.gif">
           </div>
 
           <!-- Fighting Against -->
@@ -56,13 +56,11 @@
             <h2> Defender </h2>
             <progress id="health" value="100" max="100"> Hi</progress>
 
-            <div> Fighter </div>
-            <img id="defender" src="#" >
+            <img id="defender" src="assets/images/starwars-loader.gif">
           </div>
 
           <!-- Attack! -->
           <div class=fight>
-            <h2> Fight Section </h2>
             <button type="button"> Use the Force </button>
           </div>
 
@@ -71,18 +69,15 @@
             <h2> Enemies Available To Attack </h2>
 
               <div id="enemy1"> 
-                <p> Enemy 1 </p>
-                <img src="#" id="one">
+                <img id="one" src="assets/images/starwars-loader.gif">
               </div>
 
               <div id="enemy2"> 
-                <p> Enemy 2 </p>
-                <img src="#" id="two">
+                <img id="two" src="assets/images/starwars-loader.gif">
               </div>
 
               <div id="enemy3"> 
-                <p> Enemy 3 </p>
-                <img src="#" id="three">
+                <img id="three" src="assets/images/starwars-loader.gif">
               </div>
           </div>
   
