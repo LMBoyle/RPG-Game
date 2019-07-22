@@ -13,7 +13,7 @@
         <!-- Title -->
         <div id="title"> Star Wars RPG! </div>
         <!-- Row of characters -->
-        <div class="charSelect">
+        <div class="charSelect" id="choose" onclick="startGame()" style="display: grid;">
           <div class="direction"> Choose your Fighter </div>
           <!-- Each box that contains a character -->
           <div id="obi">
@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <div class="arena">
+        <div class="arena" id="showHide" style="display: none">
           <!-- Show your character -->
           <div class="you">
             <h2> Your Character </h2>
