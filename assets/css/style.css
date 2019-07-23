@@ -54,7 +54,6 @@ body {
   grid-row: 1;
 }
 
-
 #obi,
 #luke,
 #sid,
@@ -195,4 +194,9 @@ img#three {
   width: 110px;
   height: 100px;
   margin: 5px 0;
+}
+
+.defeated img{
+  opacity: .5;
+  pointer-events: none;
 }

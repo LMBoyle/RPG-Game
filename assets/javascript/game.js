@@ -31,7 +31,12 @@ var maul = {
   attack: 20,
   counterAttack: 25,
 }
+var loader = {
+  image: "assets/images/starwars-loader.gif",
+  lightsaber: {"box-shadow" : "0 0 8px 3px grey"},
+}
 var user = $("#user");
+var defender = $("#defender");
 var one = $("<img>");
 var two = $("<img>");
 var three = $("<img>");
@@ -85,10 +90,47 @@ function startGame(img) {
 // ==============================================
 // CHOOSE AN ENEMY
 // On click, choose an enemy
-
+function chooseEnemy(img) {
 // Show enemy under "defender"
+  if (img.target.alt === luke.name) {
+    // Show character under "user"
+    defender.attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber);
+    // Grey them out under "available to attack"
+    waiting();
+  }
+  else if (img.target.alt === obi.name) {
+    // Show character under "user"
+    defender.attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber);
+    // Grey them out under "available to attack"
+    waiting();
+  }
+  else if (img.target.alt === sidious.name) {
+    // Show character under "user"
+    defender.attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber);
+    // Grey them out under "available to attack"
+    waiting();
+  }
+  else if (img.target.alt === maul.name) {
+    // Show character under "user"
+    defender.attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber);
+    // Grey them out under "available to attack"
+    waiting();
+  }
 
-// If enemy health = 0, show greyed out or with an v, and make unclickable
+  function waiting() {
+    if (img.target.id === "one") {
+      one.attr("src", loader.image).css(loader.lightsaber).appendTo("#enemy1");
+    }
+    else if (img.target.id === "two") {
+      two.attr("src", loader.image).css(loader.lightsaber).appendTo("#enemy2");
+    }
+    else if (img.target.id === "three") {
+      three.attr("src", loader.image).css(loader.lightsaber).appendTo("#enemy3");
+    }
+  }
+// If enemy health = 0, show greyed out and make unclickable
+}
+
 
 // ==============================================
 // FIGHT
@@ -105,7 +147,9 @@ function startGame(img) {
 // ==============================================
 // WIN/LOSE
 // If defeated enemy, loop to choose an enemy
-
+function defeated() {
+  $("#enemy2").removeClass("ready").addClass("defeated");
+}
 // If lose, loop to reset
 
 // ==============================================
@@ -114,4 +158,5 @@ function startGame(img) {
 // CALL FUNCTIONS
 $(document).ready(function() {
   $(".choose").click(startGame);
+  $(".ready").click(chooseEnemy);
 });
