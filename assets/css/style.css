@@ -54,6 +54,7 @@ body {
   grid-row: 1;
 }
 
+
 #obi,
 #luke,
 #sid,
@@ -63,36 +64,41 @@ body {
   width: 220px;
 }
 
-img#obi,
-img#luke,
-img#sid,
-img#maul,
+img#obi-img,
+img#luke-img,
+img#sid-img,
+img#maul-img,
 img#user,
 img#defender {
   width: 110px;
   height: 100px;
   margin: 5px 0;
+  pointer-events: none;
 }
 
-#obi {
+#obi,
+img#obi-img {
   grid-column: 1;
   grid-row: 2;
   box-shadow: 0 0 8px 3px rgb(148, 167, 231);
 }
 
-#luke {
+#luke,
+img#luke-img {
   grid-column: 2;
   grid-row: 2;
   box-shadow: 0 0 8px 3px green;
 }
 
-#sid {
+#sid,
+img#sid-img {
   grid-column: 3;
   grid-row: 2;
   box-shadow: 0 0 8px 3px red;
 }
 
-#maul {
+#maul,
+img#maul-img {
   grid-column: 4;
   grid-row: 2;
   box-shadow: 0 0 8px 3px red;
