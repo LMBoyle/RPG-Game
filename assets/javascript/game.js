@@ -5,6 +5,7 @@ var obi = {
   lightsaber: {"box-shadow" : "0 0 8px 3px rgb(148, 167, 231)"},
   health: 120,
   attack: 8,
+  stronger: 8,
   counterAttack: 10,
 }
 var luke = {
@@ -45,77 +46,86 @@ var three = $("<img>");
 // On click, choose a character
 function startGame(img) {
 
-  if (img.target.id === "obi") {
-    // Show character under "user"
-    user.attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber);
-    // Show other characters under "enemiesLeft"
-    one.attr("id", "one").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy1");
-    two.attr("id", "two").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy2");
-    three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
-  }
-  else if (img.target.id === "luke") {
-    // Show character under "user"
-    user.attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber);
-    // Show other characters under "enemiesLeft"
-    one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
-    two.attr("id", "two").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy2");
-    three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
-  }
-  else if (img.target.id === "sid") {
-    // Show character under "user"
-    user.attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber);
-    // Show other characters under "enemiesLeft"
-    one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
-    two.attr("id", "two").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy2");
-    three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
-  }
-  else if (img.target.id === "maul") {
-    // Show character under "user"
-    user.attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber);
-    // Show other characters under "enemiesLeft"
-    one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
-    two.attr("id", "two").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy2");
-    three.attr("id", "three").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy3");
-  }
+  switch (img.target.id) {
+    case "obi":
+      // Show character under "user"
+      user.attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber);
+      // Show other characters under "enemiesLeft"
+      one.attr("id", "one").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy1");
+      two.attr("id", "two").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy2");
+      three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
+      break;
 
+    case "luke":
+      // Show character under "user"
+      user.attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber);
+      // Show other characters under "enemiesLeft"
+      one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
+      two.attr("id", "two").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy2");
+      three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
+      break;
+    
+    case "sid":
+      // Show character under "user"
+      user.attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber);
+      // Show other characters under "enemiesLeft"
+      one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
+      two.attr("id", "two").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy2");
+      three.attr("id", "three").attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber).appendTo("#enemy3");
+      break;
 
+    case "maul":
+      // Show character under "user"
+      user.attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber);
+      // Show other characters under "enemiesLeft"
+      one.attr("id", "one").attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber).appendTo("#enemy1");
+      two.attr("id", "two").attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber).appendTo("#enemy2");
+      three.attr("id", "three").attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber).appendTo("#enemy3");
+      break;
+  }
 // Show fight arena
   $(".arena").toggle();
 
 // Hide character select
   $(".charSelect").toggle();
-}
 
+}
 
 // ==============================================
 // CHOOSE AN ENEMY
 // On click, choose an enemy
 function chooseEnemy(img) {
-// Show enemy under "defender"
-  if (img.target.alt === luke.name) {
-    // Show character under "user"
-    defender.attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber);
-    // Grey them out under "available to attack"
-    waiting();
+
+  switch (img.target.alt) {
+    case luke.name:
+      // Show character under "user"
+      defender.attr("src", luke.image).attr("alt", luke.name).css(luke.lightsaber);
+      // Grey them out under "available to attack"
+      waiting();
+      break;
+    
+    case obi.name:
+      // Show character under "user"
+      defender.attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber);
+      // Grey them out under "available to attack"
+      waiting();
+      break;
+
+    case sidious.name:
+      // Show character under "user"
+      defender.attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber);
+      // Grey them out under "available to attack"
+      waiting();
+      break;
+
+    case maul.name:
+      // Show character under "user"
+      defender.attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber);
+      // Grey them out under "available to attack"
+      waiting();
+      break;
   }
-  else if (img.target.alt === obi.name) {
-    // Show character under "user"
-    defender.attr("src", obi.image).attr("alt", obi.name).css(obi.lightsaber);
-    // Grey them out under "available to attack"
-    waiting();
-  }
-  else if (img.target.alt === sidious.name) {
-    // Show character under "user"
-    defender.attr("src", sidious.image).attr("alt", sidious.name).css(sidious.lightsaber);
-    // Grey them out under "available to attack"
-    waiting();
-  }
-  else if (img.target.alt === maul.name) {
-    // Show character under "user"
-    defender.attr("src", maul.image).attr("alt", maul.name).css(maul.lightsaber);
-    // Grey them out under "available to attack"
-    waiting();
-  }
+
 
   function waiting() {
     if (img.target.id === "one") {
@@ -135,8 +145,65 @@ function chooseEnemy(img) {
 // ==============================================
 // FIGHT
 // On button click
-
-// Take health from enemy based on user attack value
+function fight() {
+  // If user chooses obi
+  if (user.attr("alt") === obi.name) {
+    // If enemy is Luke
+    if (defender.attr("alt") === luke.name) {
+      if (luke.health <= 0) {
+        one.attr("src", luke.image).attr("alt", luke.name).appendTo("#enemy1");
+        defeatedOne();
+      }
+      else {
+      // Take health from enemy based on user attack value
+      luke.health = luke.health - obi.stronger;
+      console.log('luke.health :',  luke.health);
+      // Take health from user based on enemy counter attack value
+      obi.health = obi.health - luke.counterAttack;
+      console.log('obi.health:', obi.health);
+      // Add to user attack value
+      obi.stronger = obi.stronger + obi.attack;
+      console.log('obi.stronger:', obi.stronger);
+      }
+    }
+    // If enemy is Darth Sidious
+    else if (defender.attr("alt") === sidious.name) {
+      if (sidious.health <= 0) {
+        two.attr("src", sidious.image).attr("alt", sidious.name).appendTo("#enemy2");
+        defeatedTwo();
+      }
+      else {
+        // Take health from enemy based on user attack value
+        sidious.health = sidious.health - obi.stronger;
+        console.log('sidious.health :',  sidious.health);
+        // Take health from user based on enemy counter attack value
+        obi.health = obi.health - sidious.counterAttack;
+        console.log('obi.health:', obi.health);
+        // Add to user attack value
+        obi.stronger = obi.stronger + obi.attack;
+        console.log('obi.stronger:', obi.stronger);
+      }
+    }
+    // If enemy is Darth Maul 
+    else if (defender.attr("alt") === maul.name) {
+      if (maul.health <= 0) {
+        three.attr("src", maul.image).attr("alt", maul.name).appendTo("#enemy3");
+        defeatedThree();
+      }
+      else {
+        // Take health from enemy based on user attack value
+        maul.health = maul.health - obi.stronger;
+        console.log('maul.health :',  maul.health);
+        // Take health from user based on enemy counter attack value
+        obi.health = obi.health - maul.counterAttack;
+        console.log('obi.health:', obi.health);      
+        // Add to user attack value
+        obi.stronger = obi.stronger + obi.attack;
+        console.log('obi.stronger:', obi.stronger);
+      }
+    }
+  }
+}
 
 // Take health from user based on enemy counter attack value
 
@@ -147,8 +214,19 @@ function chooseEnemy(img) {
 // ==============================================
 // WIN/LOSE
 // If defeated enemy, loop to choose an enemy
-function defeated() {
-  $("#enemy2").removeClass("ready").addClass("defeated");
+function defeatedOne() {
+  one.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy1");
+  defender.attr("src", loader.image).css(loader.lightsaber).appendTo("#defender");
+}
+
+function defeatedTwo() {
+  two.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy2");
+  defender.attr("src", loader.image).css(loader.lightsaber).appendTo("#defender");
+}
+
+function defeatedThree() {
+  three.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy3");
+  defender.attr("src", loader.image).css(loader.lightsaber).appendTo("#defender");
 }
 // If lose, loop to reset
 
@@ -159,4 +237,5 @@ function defeated() {
 $(document).ready(function() {
   $(".choose").click(startGame);
   $(".ready").click(chooseEnemy);
+  $("button").click(fight);
 });
