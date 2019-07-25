@@ -5,6 +5,7 @@ var obi = {
   image: "assets/images/Obi-wan.png",
   lightsaber: {"box-shadow" : "0 0 8px 3px rgb(148, 167, 231)"},
   health: 120,
+  baseHealth: 120,
   attack: 8,
   stronger: 8,
   counterAttack: 10,
@@ -14,6 +15,7 @@ var luke = {
   image: "assets/images/Luke.jpg",
   lightsaber: {"box-shadow" : "0 0 8px 3px green"},
   health: 100,
+  baseHealth: 100,
   attack: 10,
   stronger: 10,
   counterAttack: 15,
@@ -23,6 +25,7 @@ var sidious = {
   image: "assets/images/Darth_Sidious.jpg",
   lightsaber: {"box-shadow" : "0 0 8px 3px red"},
   health: 150,
+  baseHealth: 150,
   attack: 15,
   stronger: 15,
   counterAttack: 20,
@@ -32,6 +35,7 @@ var maul = {
   image: "assets/images/Darth_Maul.png",
   lightsaber: {"box-shadow" : "0 0 8px 3px red"},
   health: 110,
+  baseHealth: 110,
   attack: 20,
   stronger: 20,
   counterAttack: 25,
@@ -167,244 +171,288 @@ function fight() {
   else {
     // If user chooses obi ========================================================
     if (user.attr("alt") === obi.name) {
+      // Set max health to users base health
+      $("#userHealth").attr("max", obi.baseHealth);
+
       // If enemy is Luke
       if (defender.attr("alt") === luke.name) {
+        $("#enemyHealth").attr("max", luke.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (luke.health <= 0) {
           one.attr("src", luke.image).attr("alt", luke.name).appendTo("#enemy1");
           defeatedOne();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        luke.health = luke.health - obi.stronger;
-        console.log('luke.health :',  luke.health);
-        // Take health from user based on enemy counter attack value
-        obi.health = obi.health - luke.counterAttack;
-        console.log('obi.health:', obi.health);
-        // Add to user attack value
-        obi.stronger = obi.stronger + obi.attack;
-        console.log('obi.stronger:', obi.stronger);
+          // Take health from enemy based on user attack value
+          luke.health = luke.health - obi.stronger;
+          $("#enemyHealth").attr("value", luke.health);
+          // Take health from user based on enemy counter attack value
+          obi.health = obi.health - luke.counterAttack;
+          $("#userHealth").attr("value", obi.health);
+          // Add to user attack value
+          obi.stronger = obi.stronger + obi.attack;
         }
       }
+
       // If enemy is Darth Sidious
       else if (defender.attr("alt") === sidious.name) {
+        $("#enemyHealth").attr("max", sidious.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (sidious.health <= 0) {
           two.attr("src", sidious.image).attr("alt", sidious.name).appendTo("#enemy2");
           defeatedTwo();
         }
+
         else {
           // Take health from enemy based on user attack value
           sidious.health = sidious.health - obi.stronger;
-          console.log('sidious.health :',  sidious.health);
+          $("#enemyHealth").attr("value", sidious.health);
           // Take health from user based on enemy counter attack value
           obi.health = obi.health - sidious.counterAttack;
-          console.log('obi.health:', obi.health);
+          $("#userHealth").attr("value", obi.health);
           // Add to user attack value
           obi.stronger = obi.stronger + obi.attack;
-          console.log('obi.stronger:', obi.stronger);
         }
       }
+
       // If enemy is Darth Maul 
       else if (defender.attr("alt") === maul.name) {
+        $("#enemyHealth").attr("max", maul.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (maul.health <= 0) {
           three.attr("src", maul.image).attr("alt", maul.name).appendTo("#enemy3");
           defeatedThree();
         }
+
         else {
           // Take health from enemy based on user attack value
           maul.health = maul.health - obi.stronger;
-          console.log('maul.health :',  maul.health);
+          $("#enemyHealth").attr("value", maul.health);
           // Take health from user based on enemy counter attack value
           obi.health = obi.health - maul.counterAttack;
-          console.log('obi.health:', obi.health);      
+          $("#userHealth").attr("value", obi.health);
           // Add to user attack value
           obi.stronger = obi.stronger + obi.attack;
-          console.log('obi.stronger:', obi.stronger);
         }
       }
     }
 
     // If user chooses luke =======================================================
     else if (user.attr("alt") === luke.name) {
+      // Set max health to users base health
+      $("#userHealth").attr("max", luke.baseHealth);
+
       // If enemy is Obi
       if (defender.attr("alt") === obi.name) {
+        $("#enemyHealth").attr("max", obi.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (obi.health <= 0) {
           one.attr("src", obi.image).attr("alt", obi.name).appendTo("#enemy1");
           defeatedOne();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        obi.health = obi.health - luke.stronger;
-        console.log('obi.health :',  obi.health);
-        // Take health from user based on enemy counter attack value
-        luke.health = luke.health - obi.counterAttack;
-        console.log('luke.health:', luke.health);
-        // Add to user attack value
-        luke.stronger = luke.stronger + luke.attack;
-        console.log('luke.stronger:', luke.stronger);
+          // Take health from enemy based on user attack value
+          obi.health = obi.health - luke.stronger;
+          $("#enemyHealth").attr("value", obi.health);
+          // Take health from user based on enemy counter attack value
+          luke.health = luke.health - obi.counterAttack;
+          $("#userHealth").attr("value", luke.health);
+          // Add to user attack value
+          luke.stronger = luke.stronger + luke.attack;
         }
       }
+
       // If enemy is Darth Sidious
       else if (defender.attr("alt") === sidious.name) {
+        $("#enemyHealth").attr("max", sidious.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (sidious.health <= 0) {
           two.attr("src", sidious.image).attr("alt", sidious.name).appendTo("#enemy2");
           defeatedTwo();
         }
+
         else {
           // Take health from enemy based on user attack value
           sidious.health = sidious.health - luke.stronger;
-          console.log('sidious.health :',  sidious.health);
+          $("#enemyHealth").attr("value", sidious.health);
           // Take health from user based on enemy counter attack value
           luke.health = luke.health - sidious.counterAttack;
-          console.log('luke.health:', luke.health);
+          $("#userHealth").attr("value", luke.health);
           // Add to user attack value
           luke.stronger = luke.stronger + luke.attack;
-          console.log('luke.stronger:', luke.stronger);
         }
       }
+
       // If enemy is Darth Maul 
       else if (defender.attr("alt") === maul.name) {
+        $("#enemyHealth").attr("max", maul.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (maul.health <= 0) {
           three.attr("src", maul.image).attr("alt", maul.name).appendTo("#enemy3");
           defeatedThree();
         }
+
         else {
           // Take health from enemy based on user attack value
           maul.health = maul.health - luke.stronger;
-          console.log('maul.health :',  maul.health);
+          $("#enemyHealth").attr("value", maul.health);
           // Take health from user based on enemy counter attack value
           luke.health = luke.health - maul.counterAttack;
-          console.log('luke.health:', luke.health);      
+          $("#userHealth").attr("value", luke.health);
           // Add to user attack value
           luke.stronger = luke.stronger + luke.attack;
-          console.log('luke.stronger:', luke.stronger);
         }
       }
     }
 
     // If user chooses darth sidious ==============================================
     else if (user.attr("alt") === sidious.name) {
+      // Set max health to users base health
+      $("#userHealth").attr("max", sidious.baseHealth);
+
       // If enemy is Obi
       if (defender.attr("alt") === obi.name) {
+        $("#enemyHealth").attr("max", obi.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (obi.health <= 0) {
           one.attr("src", obi.image).attr("alt", obi.name).appendTo("#enemy1");
           defeatedOne();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        obi.health = obi.health - sidious.stronger;
-        console.log('obi.health :',  obi.health);
-        // Take health from user based on enemy counter attack value
-        sidious.health = sidious.health - obi.counterAttack;
-        console.log('sidious.health:', sidious.health);
-        // Add to user attack value
-        sidious.stronger = sidious.stronger + sidious.attack;
-        console.log('sidious.stronger:', sidious.stronger);
+          // Take health from enemy based on user attack value
+          obi.health = obi.health - sidious.stronger;
+          $("#enemyHealth").attr("value", obi.health);
+          // Take health from user based on enemy counter attack value
+          sidious.health = sidious.health - obi.counterAttack;
+          $("#userHealth").attr("value", sidious.health);
+          // Add to user attack value
+          sidious.stronger = sidious.stronger + sidious.attack;
         }
       }
+
       // If enemy is Luke
       if (defender.attr("alt") === luke.name) {
+        $("#enemyHealth").attr("max", luke.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (luke.health <= 0) {
           two.attr("src", luke.image).attr("alt", luke.name).appendTo("#enemy2");
           defeatedTwo();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        luke.health = luke.health - sidious.stronger;
-        console.log('luke.health :',  luke.health);
-        // Take health from user based on enemy counter attack value
-        sidious.health = sidious.health - luke.counterAttack;
-        console.log('sidious.health:', sidious.health);
-        // Add to user attack value
-        sidious.stronger = sidious.stronger + sidious.attack;
-        console.log('sidious.stronger:', sidious.stronger);
+          // Take health from enemy based on user attack value
+          luke.health = luke.health - sidious.stronger;
+          $("#enemyHealth").attr("value", luke.health);
+          // Take health from user based on enemy counter attack value
+          sidious.health = sidious.health - luke.counterAttack;
+          $("#userHealth").attr("value", sidious.health);
+          // Add to user attack value
+          sidious.stronger = sidious.stronger + sidious.attack;
         }
       }
+
       // If enemy is Darth Maul 
       else if (defender.attr("alt") === maul.name) {
+        $("#enemyHealth").attr("max", maul.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (maul.health <= 0) {
           three.attr("src", maul.image).attr("alt", maul.name).appendTo("#enemy3");
           defeatedThree();
         }
+
         else {
           // Take health from enemy based on user attack value
           maul.health = maul.health - sidious.stronger;
-          console.log('maul.health :',  maul.health);
+          $("#enemyHealth").attr("value", maul.health);
           // Take health from user based on enemy counter attack value
           sidious.health = sidious.health - maul.counterAttack;
-          console.log('sidious.health:', sidious.health);      
+          $("#userHealth").attr("value", sidious.health);
           // Add to user attack value
           sidious.stronger = sidious.stronger + sidious.attack;
-          console.log('sidious.stronger:', sidious.stronger);
         }
       }
     }
 
     // If user chooses darth maul =================================================
     else if (user.attr("alt") === maul.name) {
+      // Set max health to users base health
+      $("#userHealth").attr("max", maul.baseHealth);
+
       // If enemy is Obi
       if (defender.attr("alt") === obi.name) {
+        $("#enemyHealth").attr("max", obi.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (obi.health <= 0) {
           one.attr("src", obi.image).attr("alt", obi.name).appendTo("#enemy1");
           defeatedOne();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        obi.health = obi.health - maul.stronger;
-        console.log('obi.health :',  obi.health);
-        // Take health from user based on enemy counter attack value
-        sidious.health = maul.health - obi.counterAttack;
-        console.log('maul.health:', maul.health);
-        // Add to user attack value
-        maul.stronger = maul.stronger + maul.attack;
-        console.log('maul.stronger:', maul.stronger);
+          // Take health from enemy based on user attack value
+          obi.health = obi.health - maul.stronger;
+          $("#enemyHealth").attr("value", obi.health);
+          // Take health from user based on enemy counter attack value
+          maul.health = maul.health - obi.counterAttack;
+          $("#userHealth").attr("value", maul.health);
+          // Add to user attack value
+          maul.stronger = maul.stronger + maul.attack;
         }
       }
+
       // If enemy is Luke
       if (defender.attr("alt") === luke.name) {
+        $("#enemyHealth").attr("max", luke.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (luke.health <= 0) {
           two.attr("src", luke.image).attr("alt", luke.name).appendTo("#enemy2");
           defeatedTwo();
         }
+
         else {
-        // Take health from enemy based on user attack value
-        luke.health = luke.health - maul.stronger;
-        console.log('luke.health :',  luke.health);
-        // Take health from user based on enemy counter attack value
-        maul.health = maul.health - luke.counterAttack;
-        console.log('maul.health:', maul.health);
-        // Add to user attack value
-        maul.stronger = maul.stronger + maul.attack;
-        console.log('maul.stronger:', maul.stronger);
+          // Take health from enemy based on user attack value
+          luke.health = luke.health - maul.stronger;
+          $("#enemyHealth").attr("value", luke.health);
+          // Take health from user based on enemy counter attack value
+          maul.health = maul.health - luke.counterAttack;
+          $("#userHealth").attr("value", maul.health);
+          // Add to user attack value
+          maul.stronger = maul.stronger + maul.attack;
         }
       }
+
       // If enemy is Darth Sidious 
       else if (defender.attr("alt") === sidious.name) {
+        $("#enemyHealth").attr("max", sidious.baseHealth);
+
         // Loop until enemy health is 0 or below
         if (sidious.health <= 0) {
           three.attr("src", sidious.image).attr("alt", sidious.name).appendTo("#enemy3");
           defeatedThree();
         }
+
         else {
           // Take health from enemy based on user attack value
           sidious.health = sidious.health - maul.stronger;
-          console.log('sidious.health :',  sidious.health);
+          $("#enemyHealth").attr("value", sidious.health);
           // Take health from user based on enemy counter attack value
           maul.health = maul.health - sidious.counterAttack;
-          console.log('maul.health:', maul.health);      
+          $("#userHealth").attr("value", maul.health);
           // Add to user attack value
           maul.stronger = maul.stronger + maul.attack;
-          console.log('maul.stronger:', maul.stronger);
         }
       }
     }
@@ -418,16 +466,19 @@ function fight() {
 function defeatedOne() {
   one.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy1");
   defender.attr("src", loader.image).attr("alt", loader.name).css(loader.lightsaber).appendTo("#defender");
+  $("#enemyHealth").attr("max", 100).attr("value", 100);
 }
 
 function defeatedTwo() {
   two.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy2");
   defender.attr("src", loader.image).attr("alt", loader.name).css(loader.lightsaber).appendTo("#defender");
+  $("#enemyHealth").attr("max", 100).attr("value", 100);
 }
 
 function defeatedThree() {
   three.removeClass("ready").addClass("defeated").css(loader.lightsaber).css({"pointer-events" : "none"}).appendTo("#enemy3");
   defender.attr("src", loader.image).attr("alt", loader.name).css(loader.lightsaber).appendTo("#defender");
+  $("#enemyHealth").attr("max", 100).attr("value", 100);
 }
 
 // If lose, loop to reset
@@ -460,6 +511,11 @@ function reset() {
 
   // Reset defender img for when lost
   defender.attr("src", loader.image).attr("alt", loader.name).css(loader.lightsaber);
+
+  // Reset health values
+  $("#userHealth").attr("max", 100).attr("value", 100);
+  $("#enemyHealth").attr("max", 100).attr("value", 100);
+
 }
 // ==============================================
 // CALL FUNCTIONS
