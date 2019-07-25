@@ -8,7 +8,7 @@ var obi = {
   baseHealth: 120,
   attack: 8,
   stronger: 8,
-  counterAttack: 10,
+  counterAttack: 15,
 }
 var luke = {
   name: "Luke Skywalker",
@@ -16,9 +16,9 @@ var luke = {
   lightsaber: {"box-shadow" : "0 0 8px 3px green"},
   health: 100,
   baseHealth: 100,
-  attack: 10,
-  stronger: 10,
-  counterAttack: 15,
+  attack: 15,
+  stronger: 15,
+  counterAttack: 5,
 }
 var sidious = {
   name: "Darth Sidious",
@@ -26,18 +26,18 @@ var sidious = {
   lightsaber: {"box-shadow" : "0 0 8px 3px red"},
   health: 150,
   baseHealth: 150,
-  attack: 15,
-  stronger: 15,
+  attack: 10,
+  stronger: 10,
   counterAttack: 20,
 }
 var maul = {
   name: "Darth Maul",
   image: "assets/images/Darth_Maul.png",
   lightsaber: {"box-shadow" : "0 0 8px 3px red"},
-  health: 110,
-  baseHealth: 110,
-  attack: 20,
-  stronger: 20,
+  health: 180,
+  baseHealth: 180,
+  attack: 6,
+  stronger: 6,
   counterAttack: 25,
 }
 var loader = {
@@ -496,7 +496,7 @@ function reset() {
   obi.health = 120;
   luke.health = 100;
   sidious.health = 150;
-  maul.health = 110;
+  maul.health = 180;
 
   // Reset all stronger attack
   obi.stronger = obi.attack;
