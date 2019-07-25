@@ -6,6 +6,6 @@ If users health drops below 0, they lose. If all the others drop below 0 first, 
 
 HTML, CSS and JavaScript
 
-[Basic Portfolio](https://github.com/LMBoyle/Basic-Portfolio)
+[Basic Portfolio](https://lmboyle.github.io/Basic-Portfolio/portfolio.html)
 
 Deployed link here: https://lmboyle.github.io/unit-4-game/
