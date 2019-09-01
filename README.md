@@ -1,11 +1,18 @@
-# unit-4-game
+# Star Wars RPG
+Star Wars Themed Click Fighter RPG. 
 
-Star Wars Themed click fight RPG. 
-Out of four fighters, users choose one then must defeat the other three. 
-If users health drops below 0, they lose. If all the others drop below 0 first, they win. 
+Homework assignment for UNC Coding Bootcamp to learn how to use jQuery and further solidify Javascript knowledge.
+ 
+## Instructions
+First, user chooses a character by clicking on them.
+They then battle against the other three until they defeat all three or their health drops below 0.
 
-HTML, CSS and JavaScript
+## Languages/Technologies 
+* HTML
+* CSS
+* JavaScript
+* jQuery
 
-[Basic Portfolio](https://lmboyle.github.io/Basic-Portfolio/portfolio.html)
-
-Deployed link here: https://lmboyle.github.io/unit-4-game/
+## Links
+[Deployed Link](https://lmboyle.github.io/unit-4-game/)
+[Portfolio](https://lmboyle.github.io/)
