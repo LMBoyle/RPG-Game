@@ -23,6 +23,6 @@ How to use jQuery and further solidify Javascript knowledge
 - [ ] Change alert to modal
 
 ## Links
-[Deployed Link](https://lmboyle.github.io/unit-4-game/)
+[Deployed Link](https://lmboyle.github.io/RPG-Game/)
 
 [Portfolio](https://lmboyle.github.io/)
